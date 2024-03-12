@@ -1,0 +1,1 @@
+export const CURRENCY_URL="1d5c1988520641d88b432857e3ce25cd"
