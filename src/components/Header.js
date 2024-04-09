@@ -1,7 +1,7 @@
 import React from 'react';
 import { useUser } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
-
+import NotificationDropdown from './NotificationDropDown';
 function Header() {
   const { user, setUser } = useUser();
   const navigate = useNavigate();
@@ -23,14 +23,19 @@ function Header() {
           
           {/* Conditionally render profile and logout options */}
           {user ? (
-            <ul className="navbar-nav">
-               <li className="nav-item">
-              <a className="nav-link" href="#">Home</a>
+            <ul className="navbar-nav ml-auto">
+            <li className="nav-item dropdown">
+              <NotificationDropdown />
             </li>
-              <li className="nav-item">
-                <button className="btn btn-link nav-link" onClick={handleLogout}>Logout</button>
-              </li>
-            </ul>
+            <li className="nav-item">
+              <button
+                className="btn btn-link nav-link"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            </li>
+          </ul>
           ) : null}
           
         </div>

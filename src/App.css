@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+.notification-dropdown {
+  position: relative;
+}
+
+.dropdown-overlay {
+  position: absolute;
+  top: calc(100% + 5px); /* Position dropdown content below button */
+  left: 0;
+  width: 200px; /* Adjust width as needed */
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure dropdown is above other content */
+}
+
+.dropdown-content {
+  padding: 10px;
+}
+
+.dropdown-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dropdown-content ul li {
+  margin-bottom: 5px;
+}
+
+.dropdown-content p {
+  margin: 10px 0;
+}

@@ -52,6 +52,10 @@ function SearchBar({ OnInputChange }) {
 
 
   return (
+    <div className="container mb-5">
+
+    
+
     <AsyncPaginate
       placeholder="Enter your destination"
       debounceTimeout={600}
@@ -59,7 +63,7 @@ function SearchBar({ OnInputChange }) {
       loadOptions={getSuggestions}
       onChange={handleOnChange}
 
-    />
+    /></div>
   );
 }
 

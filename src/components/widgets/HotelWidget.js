@@ -4,6 +4,7 @@ import Accordion from 'react-bootstrap/Accordion';
 function HotelWidget({ cityId }) {
     const [hotels, setHotels] = useState(null); // State to store hotel data
     useEffect(() => {
+        console.log(cityId)
         fetchHotelsData(cityId); // Fetch hotels data on component mount
     }, [cityId]); 
     function getFormattedDate(date) {
@@ -68,6 +69,7 @@ function HotelWidget({ cityId }) {
     console.log(hotels);
 
     return (
+        <div className='container mt-5'>
         <Accordion>
             <Accordion.Item eventKey="0">
                 <Accordion.Header onClick={() => fetchHotelsData(cityId)} >
@@ -100,7 +102,7 @@ function HotelWidget({ cityId }) {
                 </Accordion.Body>
             </Accordion.Item>
         </Accordion>
-
+        </div>
     );
 }
 

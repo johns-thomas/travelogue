@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 
-const AddReview = ({ onAddReview, location }) => {
+const AddReview = ({ onAddReview, location,cityName }) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [rating, setRating] = useState(0);
@@ -53,7 +53,7 @@ const AddReview = ({ onAddReview, location }) => {
 
     return (
         <div className="container mt-4">
-            <h2>Add Review for {location}</h2>
+            <h3>Share your experience about {cityName}</h3>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="title" className="form-label">Title:</label>
