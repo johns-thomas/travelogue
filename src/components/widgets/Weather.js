@@ -20,19 +20,19 @@ function WeatherWidget({ value }) {
                             <span className="parameter-label font-weight-bold" style={{ fontSize: "10px" }}>Details</span>
                         </div>
                         <div className="parameter-row">
-                            <span className="parameter-label" style={{ fontSize: "10px" }}>Feels like</span>
+                            <span className="parameter-label" style={{ fontSize: "10px" }}>Feels like :</span>
                             <span className="parameter-value font-weight-bold" style={{ fontSize: "10px" }}>{Math.round(data.main.feels_like)}°C</span>
                         </div>
                         <div className="parameter-row">
-                            <span className="parameter-label" style={{ fontSize: "10px" }}>Wind</span>
+                            <span className="parameter-label" style={{ fontSize: "10px" }}>Wind :</span>
                             <span className="parameter-value font-weight-bold" style={{ fontSize: "10px" }}>{data.wind.speed} m/s</span>
                         </div>
                         <div className="parameter-row">
-                            <span className="parameter-label" style={{ fontSize: "10px" }}>Humidity</span>
+                            <span className="parameter-label" style={{ fontSize: "10px" }}>Humidity :</span>
                             <span className="parameter-value font-weight-bold" style={{ fontSize: "10px" }}>{data.main.humidity}%</span>
                         </div>
                         <div className="parameter-row">
-                            <span className="parameter-label" style={{ fontSize: "10px" }}>Pressure</span>
+                            <span className="parameter-label" style={{ fontSize: "10px" }}>Pressure :</span>
                             <span className="parameter-value font-weight-bold" style={{ fontSize: "10px" }}>{data.main.pressure} hPa</span>
                         </div>
                     </div>

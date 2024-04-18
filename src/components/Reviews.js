@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AddReview from './AddReview';
-
+import { HOST_URL } from '../geoapi';
 function ReviewsComponent({cityId,cityName}) {
     const [reviews, setReviews] = useState(null);
 
@@ -9,7 +9,7 @@ function ReviewsComponent({cityId,cityName}) {
         try {
             const accessToken = localStorage.getItem('JWTBOOKINGTOKEN');
 
-            const response = await fetch(`http://localhost:5000/bookingapp/api/city/review/all?city=${cityId}`, {
+            const response = await fetch(`${HOST_URL}/api/city/review/all?city=${cityId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ function ReviewsComponent({cityId,cityName}) {
             newReview.city=cityName;
             const accessToken = localStorage.getItem('JWTBOOKINGTOKEN');
             // Perform API call to add the review
-            const respons = await fetch('http://localhost:5000/bookingapp/api/city/review/add', {
+            const respons = await fetch(`${HOST_URL}/api/city/review/add`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

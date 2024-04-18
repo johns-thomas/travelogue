@@ -6,4 +6,5 @@ export const geoOptions = {
     'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
   }
 };
-
+export const HOST_URL="http://x22203389scapp-env.eba-z5az2ytx.ap-south-1.elasticbeanstalk.com";
+export const LOCAL_URL="http://localhost:5000"

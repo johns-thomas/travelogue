@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
-
+import { HOST_URL } from '../geoapi';
 function RegisterForm() {
     const [credentials, setCredentials] = useState({
         username: '',
@@ -28,7 +28,7 @@ function RegisterForm() {
         }
         if (username && password) {
             try {
-                const response = await fetch('http://localhost:5000/bookingapp/api/user/authenticate/signup', {
+                const response = await fetch(`${HOST_URL}/api/user/authenticate/signup`, {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',

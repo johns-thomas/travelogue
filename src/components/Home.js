@@ -6,6 +6,7 @@ import CurrencyWidget from "./widgets/CurrencyWidget";
 import HotelWidget from "./widgets/HotelWidget";
 import { WEATHER_API_URL, WEATHER_API_KEY } from '../weatherapi';
 import ReviewsComponent from "./Reviews";
+import { HOST_URL } from "../geoapi";
 
 function Home() {
     const [weatherData, setWeatherData] = useState(null);
@@ -31,13 +32,18 @@ function Home() {
             setShowWelcome(false); // Hide welcome message and image when user starts typing
             const [lat, lon] = input.value.split(" ");
             const cityName = input.label.split(",")[0];
-            const fetchCurrentWeather = fetch(
-                `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
-            );
+            // const fetchCurrentWeather = fetch(
+            //     `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
+            // );
             const fetchWeatherForecast = fetch(
                 `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
             );
-
+            // const fetchCurrentWeather = fetch(
+            //     `http://x22203389scapp-env.eba-z5az2ytx.ap-south-1.elasticbeanstalk.com/weather/today?city=${cityName}`
+            // );
+            const fetchCurrentWeather = fetch(
+                `${HOST_URL}/weather/today?city=${cityName}`
+            );
             const [currentWeatherResponse, forecastResponse] = await Promise.all([fetchCurrentWeather, fetchWeatherForecast]);
 
             const currentWeather = await currentWeatherResponse.json();

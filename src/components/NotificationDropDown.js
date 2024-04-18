@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { HOST_URL } from '../geoapi';
 const NotificationDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [notifications, setNotifications] = useState([]);
@@ -10,7 +10,7 @@ const NotificationDropdown = () => {
 
         const accessToken = localStorage.getItem('JWTBOOKINGTOKEN');
             // Perform API call to add the review
-            const response = await fetch('http://localhost:5000/bookingapp/api/notification/all', {
+            const response = await fetch(`${HOST_URL}/api/notification/all`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

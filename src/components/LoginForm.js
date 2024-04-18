@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import { useUser } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
-
+import { HOST_URL } from '../geoapi';
 function LoginForm() {
     const [credentials, setCredentials] = useState({
         username: '',
@@ -24,7 +24,7 @@ function LoginForm() {
         e.preventDefault();
         if (username && password) {
             try {
-                const response = await fetch('http://localhost:5000/bookingapp/api/user/authenticate/signin', {
+                const response = await fetch(`${HOST_URL}/api/user/authenticate/signin`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ function LoginForm() {
                     const accessToken = localStorage.getItem('JWTBOOKINGTOKEN');
 
                     console.log(accessToken);
-                    const respons = await fetch('http://localhost:5000/bookingapp/api/user/', {
+                    const respons = await fetch(`${HOST_URL}/api/user/`, {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',

@@ -1,4 +1,4 @@
-import {BrowserRouter,Routes, Route}from 'react-router-dom'
+import {HashRouter,Routes, Route}from 'react-router-dom'
 import './App.css';
 
 import Header from './components/Header';
@@ -11,7 +11,7 @@ import { UserProvider } from './UserContext';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
     <div className="d-flex flex-column min-vh-100">
     <UserProvider>
      
@@ -27,7 +27,7 @@ function App() {
         
     </UserProvider>
       </div>
-      </BrowserRouter>
+      </HashRouter>
   );
 }
 

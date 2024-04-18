@@ -72,8 +72,8 @@ function HotelWidget({ cityId }) {
         <div className='container mt-5'>
         <Accordion>
             <Accordion.Item eventKey="0">
-                <Accordion.Header onClick={() => fetchHotelsData(cityId)} >
-                    Stays
+                <Accordion.Header onClick={() => fetchHotelsData(cityId)} style={{ fontSize: '1.2em' }} >
+                    Hotels/Resorts
                 </Accordion.Header>
 
                 <Accordion.Body>
@@ -81,7 +81,7 @@ function HotelWidget({ cityId }) {
                         hotels.map((hotel, index) => (
                             <div key={index} className="card mb-3">
                                 <div className="row g-0">
-                                    <div className="col-md-4">
+                                    <div className="col-md-4 d-flex justify-content-center align-items-center">
                                         <img src={hotel.photoUrls[0]} style={{ width: "50%", height: "50%" }} className="img-fluid rounded-start" alt="Hotel" />
                                     </div>
                                     <div className="col-md-8">
@@ -90,7 +90,7 @@ function HotelWidget({ cityId }) {
                                             <p className="card-text">{hotel.address}</p>
                                             <p className="card-text">{hotel.priceBreakdown.grossPrice.amountRounded}</p>
                                             <p className="card-text">Rating: {renderStars(hotel.reviewScore)}</p>
-                                            <p className="card-text"><small className="text-muted">{hotel.review_score} reviews</small></p>
+                                            
                                         </div>
                                     </div>
                                 </div>
