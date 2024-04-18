@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import AddReview from './AddReview';
-import { HOST_URL } from '../geoapi';
+import { HOST_URL,LOCAL_URL } from '../geoapi';
+import { useUser } from '../UserContext';
 function ReviewsComponent({cityId,cityName}) {
     const [reviews, setReviews] = useState(null);
-
+    const { user, setUser } = useUser();
     // Function to fetch reviews from API and update state
     const fetchReviewsFromApi = async () => {
         try {
             const accessToken = localStorage.getItem('JWTBOOKINGTOKEN');
 
-            const response = await fetch(`${HOST_URL}/api/city/review/all?city=${cityId}`, {
+            const response = await fetch(`${LOCAL_URL}/api/city/review/all?city=${cityId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -38,9 +39,10 @@ function ReviewsComponent({cityId,cityName}) {
     const addReview = async (newReview) => {
         try {
             newReview.city=cityName;
+            newReview.username=user.username;
             const accessToken = localStorage.getItem('JWTBOOKINGTOKEN');
             // Perform API call to add the review
-            const respons = await fetch(`${HOST_URL}/api/city/review/add`, {
+            const respons = await fetch(`${LOCAL_URL}/api/city/review/add`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
